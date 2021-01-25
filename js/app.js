@@ -17,9 +17,10 @@
  * Define Global Variables
  * 
 */
-const sectionNodes = document.querySelectorAll('section');
+const sectionNodes = document.getElementsByTagName('section');
 const navbarList = document.querySelector('#navbar__list');
 const scrollButton = document.querySelector('.scroll-top');
+const mainElement = document.querySelector('main');
 let scrollTimeout;
 
 /**
@@ -61,6 +62,35 @@ function buildNav(navbarList, sectionNodes) {
 
     navbarList.appendChild(fragment);
 }
+
+function buildSectionWithNumber(number) {
+    const fragment = document.createDocumentFragment();
+
+    let section = document.createElement('section');
+    section.setAttribute('id', `section${number}`);
+    section.dataset.nav = `Section ${number}`;
+
+    let landingContainer = document.createElement('div');
+    landingContainer.classList.add('landing__container');
+
+    let h2 = document.createElement('h2');
+    h2.textContent = `Section ${number}`;
+
+    let p1 = document.createElement('p');
+    p1.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consectetur consequuntur enim eos est et eum eveniet inventore laboriosam mollitia odio odit, perferendis quaerat quidem quos rem sit tempora totam?';
+
+    let p2 = document.createElement('p');
+    p2.textContent = 'Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.';
+
+    fragment.appendChild(section);
+    section.appendChild(landingContainer);
+    landingContainer.appendChild(h2);
+    landingContainer.appendChild(p1);
+    landingContainer.appendChild(p2);
+    mainElement.appendChild(fragment);
+}
+
+buildSectionWithNumber(4);
 
 buildNav(navbarList, sectionNodes);
 
