@@ -1,7 +1,7 @@
 # Landing Page
 
-This project is part of the [Front End Developer Nanodegree]
-(https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) program by Udacity.
+This project is part of the 
+[Front End Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) program by Udacity.
 The main objective here is to show how to add interactivity to the page with a help of JavaScript.
 
 The following topics has been covered in the process of building the page:
