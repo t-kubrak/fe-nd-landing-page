@@ -117,10 +117,7 @@ function activateVisibleSection() {
     }
 }
 
-function setActiveSection(sectionNode) {
-    sectionNode.classList.add('active');
-}
-
+let setActiveSection = (sectionNode) => sectionNode.classList.add('active');
 
 // Scroll to anchor ID using scrollTO event
 function scrollToElementId(id) {
