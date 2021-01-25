@@ -19,6 +19,7 @@
 */
 const sectionNodes = document.querySelectorAll('section');
 const navbarList = document.querySelector('#navbar__list');
+let scrollTimeout;
 
 /**
  * End Global Variables
@@ -111,7 +112,14 @@ navbarList.addEventListener('click', (e) => {
 });
 
 // Set sections as active
-document.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     activateVisibleSection();
+    navbarList.classList.remove('hidden');
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        navbarList.classList.add('hidden');
+    }, 1200);
 });
 

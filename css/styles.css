@@ -70,6 +70,10 @@ section {
     text-align: right;
 }
 
+.navbar__menu ul.hidden {
+    display: none;
+}
+
 .navbar__menu li {
     display: inline-block;
 }
