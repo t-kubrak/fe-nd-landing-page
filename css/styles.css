@@ -67,7 +67,9 @@ section {
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
-    text-align: right;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar__menu ul.hidden {
@@ -237,4 +239,10 @@ button.scroll-top {
 
 button.scroll-top.hidden {
     display: none;
+}
+
+@media (min-width: 768px)  {
+    .navbar__menu ul {
+        flex-direction: row;
+    }
 }
