@@ -56,15 +56,42 @@ function buildNav(navbarList, sectionNodes) {
 buildNav(navbarList, sectionNodes);
 
 // Add class 'active' to section when near top of viewport
+function activateVisibleSection() {
+    // Find distances from the top of the sections to the top of the viewport
+    let offsetDifferences = [];
+
+    for (sectionNode of sectionNodes) {
+        if (sectionNode.classList.contains('active')) {
+            sectionNode.classList.remove('active');
+        }
+
+        offsetDifferences.push(Math.abs(sectionNode.offsetTop - window.pageYOffset));
+    }
+
+    const min = Math.min(...offsetDifferences);
+
+    // Find a section with a lowest distance and set it as active
+    for (sectionNode of sectionNodes) {
+        if (min === Math.abs(sectionNode.offsetTop - window.pageYOffset)) {
+            setActiveSection(sectionNode);
+        }
+    }
+}
+
+function setActiveSection(sectionNode) {
+    sectionNode.classList.add('active');
+}
 
 
 // Scroll to anchor ID using scrollTO event
 function scrollToElementId(id) {
-    const element = document.querySelector(id);
+    const sectionElement = document.querySelector(id);
     window.scrollTo({
-        top: element.offsetTop,
+        top: sectionElement.offsetTop,
         behavior: 'smooth'
     });
+
+    setActiveSection(sectionElement);
 }
 
 /**
@@ -84,5 +111,7 @@ navbarList.addEventListener('click', (e) => {
 });
 
 // Set sections as active
-
+document.addEventListener('scroll', () => {
+    activateVisibleSection();
+});
 
