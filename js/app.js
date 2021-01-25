@@ -19,6 +19,7 @@
 */
 const sectionNodes = document.querySelectorAll('section');
 const navbarList = document.querySelector('#navbar__list');
+const scrollButton = document.querySelector('.scroll-top');
 let scrollTimeout;
 
 /**
@@ -26,7 +27,14 @@ let scrollTimeout;
  * Start Helper Functions
  * 
 */
+function toggleScrollButton() {
+    if (window.pageYOffset < window.innerHeight) {
+        scrollButton.classList.add('hidden');
+        return;
+    }
 
+    scrollButton.classList.remove('hidden');
+}
 
 
 /**
@@ -115,11 +123,19 @@ navbarList.addEventListener('click', (e) => {
 window.addEventListener('scroll', () => {
     activateVisibleSection();
     navbarList.classList.remove('hidden');
+    toggleScrollButton();
 
     clearTimeout(scrollTimeout);
 
     scrollTimeout = setTimeout(() => {
         navbarList.classList.add('hidden');
     }, 1200);
+});
+
+scrollButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 

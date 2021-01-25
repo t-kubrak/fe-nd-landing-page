@@ -225,3 +225,16 @@ section.active .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+button.scroll-top {
+    background-color: #fff;
+    color: #333;
+    font-size: 30px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+button.scroll-top.hidden {
+    display: none;
+}
