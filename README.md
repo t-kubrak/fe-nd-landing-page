@@ -7,7 +7,7 @@ The main objective here is to show how to add interactivity to the page with a h
 The following topics has been covered in the process of building the page:
 - [The Document Ovject Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 - [Working with browser events](https://developer.mozilla.org/en-US/docs/Web/API/Event)
-- [Pereformace](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
+- [Performance](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
 
 ## Installation
 ```
